@@ -28,7 +28,7 @@ router.post("/", async(req, res) => {
         gender,
         price
     }
-    const result = await cartsService.create(newCart);
+    const result = await cartsService.createCarts(newCart);
     res.send({status:"success", payload:result._id})
 })
 

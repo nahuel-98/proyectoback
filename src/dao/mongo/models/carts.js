@@ -12,7 +12,7 @@ const schema = new mongoose.Schema({
                 type: mongoose.SchemaTypes.ObjectId,
                 ref: "types"
             },
-            quantity: Date
+            quantity: Number
         }
     ]
 }, {timestamps:true})
