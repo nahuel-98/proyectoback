@@ -6,7 +6,7 @@ const router = Router();
 const videogamesService = new videogamesManager();
 
 router.get("/", async(req, res) => {
-    const videogames = await videogamesService.getVideogames();
+    const videogames = await videogamesService.find();
     res.send({status:"success", payload:videogames})
 })
 

@@ -10,13 +10,13 @@ const schema = new mongoose.Schema({
         {
             types: {
                 type: mongoose.SchemaTypes.ObjectId,
-                ref: "types"
+                ref:"types"
             },
             quantity: Number
         }
     ]
-}, {timestamps:true})
+},{timestamps: true})
 
-const typesModel = mongoose.model(collection,schema);
+const typesModel = mongoose.model(collection, schema);
 
 export default typesModel;

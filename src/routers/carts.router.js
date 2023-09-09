@@ -2,16 +2,10 @@ import { Router} from "express";
 import cartsManagers from "../dao/mongo/managers/cartsManager.js";
 
 const router = Router();
-
 const cartsService = new cartsManagers();
 
 router.get("/", async(req,res)=>{
-    const cart = [
-        {title:"genshin impact", gender:"otome", price:"$USD: 500"},
-        {title:"brawl stars", gender:"action", price:"$USD: 200"},
-        {title:"super Mario Bros", gender:"aventure", price: "$USD: 300"}
-    ];
-    const result = await cartsService.insertMany(cart);
+    const result = await cartsService.getcarts();
     res.send({status:"success", payload: result})
 })
 
