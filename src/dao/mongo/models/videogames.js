@@ -5,24 +5,16 @@ const collection = "Videogames";
 const schema = new mongoose.Schema ({
     title: {
         type:String,
-        required: true
+        index: true
     },
-    description: {
-        type: String,
-        required: true
-    },
-    price: {
-        type:Number,
-        required: true
-    },
-    categories: {
-        type:Array,
-        default: []
-    },
-    images: {
-        type: Array,
-        default: []
-    }
+    gender:String,
+    price: Number,
+    juegos: [
+        {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: "Juegos"
+        }
+    ]
 },{timestamps:true})
 
 const videogameModel = mongoose.model(collection,schema);

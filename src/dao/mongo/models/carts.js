@@ -3,15 +3,15 @@ import mongoose from "mongoose";
 const collection = "Videogamestypes";
 
 const schema = new mongoose.Schema({
-    title: String,
-    gender: String,
+    description: String,
     price: Number,
-    juegos: [
+    carts: [
         {
-            types: {
+        types: {
                 type: mongoose.SchemaTypes.ObjectId,
-                ref:"types"
-            },
+                ref:"Carts"
+                },
+            added: Date,
             quantity: Number
         }
     ]
