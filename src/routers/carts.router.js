@@ -12,14 +12,12 @@ router.get("/", async(req,res)=>{
 router.post("/", async(req, res) => {
     const {
         description,
-        added,
         price
     } = req.body;
 
-    if (!description || !added || !price) return res.status(400).send ({status: "error", error:"incomplete values"});
+    if (!description || !price) return res.status(400).send ({status: "error", error:"incomplete values"});
     const newCart = {
         description,
-        added,
         price
     }
     const result = await cartsService.createCarts(newCart);
