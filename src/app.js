@@ -5,7 +5,7 @@ import viewsRouter from "./routers/views.router.js";
 import Handlebars from "express-handlebars";
 import __dirname from "./utils.js";
 import cartsRouter from "./routers/carts.router.js"; 
-import cookieParser from "cookie-parser";
+//import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -19,28 +19,28 @@ app.engine("handlebars", Handlebars.engine());
 app.set("views", `${__dirname}/views`);
 app.set("view engine", "handlebars");
 
-app.use(cookieParser("palabrasecretashhhhh"));
+//app.use(cookieParser("palabrasecretashhhhh"));
 
-app.get("/", (req, res)=> {
-    const {accepted} = req.query;
-    if (accepted) {
-        res
-        .cookie("cookievid", {title:"Arena of Valor", gender:"action"},{signed:true}).send({static:"success", payload: "Usuario"})
-        .cookie("cookieRIP", {name:"gaby", lastname:"lopez"}, {maxAge:5000})
-    }
-    else{
-        res.send({error:"No puedes seguir en la página"})
-    }
-});
+//app.get("/", (req, res)=> {
+  //  const {accepted} = req.query;
+    //if (accepted) {
+      //  res
+        //.cookie("cookievid", {title:"Arena of Valor", gender:"action"},{signed:true}).send({static:"success", payload: "Usuario"})
+//        .cookie("cookieRIP", {name:"gaby", lastname:"lopez"}, {maxAge:5000})
+  //  }
+    //else{
+  //      res.send({error:"No puedes seguir en la página"})
+   // }
+//});
 
-app.get("/getCookie",(req, res) => {
-    console.log(req.cookies);
-    res.send(`Hola, ${req.cookies?.cookievid?.name}`)
-})
+//app.get("/getCookie",(req, res) => {
+  //  console.log(req.cookies);
+    //res.send(`Hola, ${req.cookies?.cookievid?.name}`)
+//})
 
 app.use(express.static(`${__dirname}/public`));
 app.use(express.json());
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(express.urlencoded({extended:true}));
 
 app.use("/api/carts", cartsRouter);
