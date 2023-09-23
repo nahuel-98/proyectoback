@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import videogamesRouter from "./routers/videogames.router.js";
+import videogameRouter from "./routers/videogame.router.js";
 import viewsRouter from "./routers/views.router.js";
 import Handlebars from "express-handlebars";
 import __dirname from "./utils.js";
@@ -45,4 +45,4 @@ app.use(express.urlencoded({extended:true}));
 
 app.use("/api/carts", cartsRouter);
 app.use("/", viewsRouter);
-app.use("/api/videogames", videogamesRouter);
+app.use("/api/videogames", videogameRouter);

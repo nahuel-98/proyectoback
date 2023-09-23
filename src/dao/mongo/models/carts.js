@@ -2,19 +2,18 @@ import mongoose from "mongoose";
 
 const collection = "Videogamestypes";
 
+const videogameSubSchema = new mongoose.Schema({
+    videogame: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref:"Videogames"
+    },
+    quantity: Number,
+    description:String
+},{_id:false})
+
 const schema = new mongoose.Schema({
-    description: String,
-    price: Number,
-    carts: [
-        {
-        types: {
-                type: mongoose.SchemaTypes.ObjectId,
-                ref:"Carts"
-                },
-            quantity: Number
-        }
-    ]
-},{timestamps: true})
+    videogames: [videogameSubSchema]
+}, {timestamps:true})
 
 const typesModel = mongoose.model(collection, schema);
 
